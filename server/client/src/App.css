@@ -1,0 +1,415 @@
+
+.logo {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 50px; */
+    
+}
+
+.logo > img {
+    width:75%;
+    height: 6em;
+}
+
+.login {
+    height: 2em;
+    width: 2em;
+}
+
+.homeIcon {
+    height: 2em;
+    width: 2em;
+}
+
+.arrow{
+    height: 4em;
+    width:4em;  
+}
+
+.direction-arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.App-header {
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+    padding:4% 2% 6%;
+}
+
+.heading {
+    font-family: Cookie ;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 2% 2% 2%;
+}
+
+.slideshow-container {
+    height: 13em;
+    display: flex;
+    align-items: center;
+}
+
+/* .places >div{
+    border:2px solid black;
+} */
+
+.detail{
+    text-align: center;
+}
+
+.images> img {
+
+    height:165px;
+    width:100%;
+} 
+
+.text-align {
+    text-align: center;
+    margin: 2% 7% 2%;
+}
+
+ .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4% 4% 2%;
+}
+
+.toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    height: 25px;
+    width: 42px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.toggle-button :focus {
+    outline: none
+}
+
+.toggle-button-line {
+    width: 30px;
+    height:3px;
+    background: black;
+}
+
+.sidebar{
+     /* border: 1px solid black;  */
+    height: 175px;
+    width: 9em;
+    position: absolute;
+    top:8%;
+    right:1%;
+    background: white;
+    text-align: left;
+    padding:2%;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.sidebar ul{
+list-style:none;
+display: flex;
+flex-direction: column;
+text-decoration: none;
+font-size: 18px;
+margin: 0;
+padding: 2%;
+}
+
+.sidebar ul li {
+    padding: 7px;
+}
+.sidebar a{
+    text-decoration: none;
+    color: #615b5b;
+} */
+
+.flexbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header {
+    font-family: Cookie ;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 2% 7% 1%;
+    text-align: center;
+} 
+
+.cityAlign {
+    text-align: center;
+    height:5em;
+}
+
+.cityname{
+    top: 40px;
+    position: relative;
+    background-color: #080808a3;
+    color: #fff;
+    width: 8em;
+    font-weight: 600;
+    padding: 3px 0px 3px;
+    border:none;
+}
+
+.cityname1 {
+    top: 45px;
+    position: relative;
+    background-color: #080808a3;
+    color: #fff;
+    width: 8em;
+    font-weight: 600;
+    padding: 3px 0px 3px;
+    left:34%;
+}
+.cityimages > img {
+    width: 100%;
+    height:75px;
+
+}
+
+.citytext {
+    text-align: center;
+    margin: -4% 6% 0%;
+    font-size: 20px;
+    font-family: cookie;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.citytext > input {
+width:15rem;
+border:1px solid gray;
+}
+
+.loader {
+    background: url(images/5.gif) no-repeat top;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 230px;
+    z-index: 9999;
+}
+
+.item1 >img {
+    width: 80%;
+    border-radius: 50%;
+    padding-top: 6px;
+}
+
+.item2 {
+    margin-bottom: 5%;
+}
+.collection {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    align-items: center;
+    height: 10%;
+    text-align: center;
+
+}
+
+.item {
+    padding: 2%;
+}
+
+.collection1{
+flex:35%;
+}
+
+.collection2{
+flex:65%;
+}
+
+.item8{
+word-spacing: 18px;
+}
+
+.coloum1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2% 12% 2%;
+
+}
+
+.itinerary {
+    margin-top: 1%;
+}
+
+.images1 > img {
+    width:100%;
+    height:15em;
+
+}
+.places1 {
+
+}
+
+.places{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    overflow: scroll;
+    align-items: center;
+    outline: none;
+  }
+
+ span > img {
+      
+    width: 24em;
+    height: 14em;
+    padding: 7px;
+  }
+  
+  span{
+      text-align: center;
+      font-weight: 500;
+  }
+
+ .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: silver;
+    border-radius: 40%;
+    height: 1.8rem;
+}
+.Accountpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: silver; */
+    border-radius: 40%;
+    height: 1.8rem;
+}
+  
+.space{
+    margin-top: -4%;
+}
+
+.collectionSpace {
+    margin-top: 2em;
+}
+
+.logindetail {
+   
+    list-style: none;
+}
+
+.logindetail li a {
+    text-decoration: none;
+}
+
+.accountheading {
+    text-align: center;
+    margin: 0% 0% 2%;
+}
+
+.formbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3%;
+    font-size: 15px;
+}
+
+.formbox1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 12%;
+    font-size: 15px;
+    margin-bottom: 2%;  
+}
+
+.formbox2{
+ display: flex;
+justify-content: flex-start;
+align-items: center;
+font-size: 15px;
+margin: 0 5% 2%;
+}
+
+.inputbox {
+    padding: 4px;
+    width:15em;
+    border:1px solid black;
+}
+
+.inputbox1 {
+    padding: 4px;
+    width:15em;
+    margin-left: 2em;
+    border:1px solid black;
+}
+
+.inputbox2{    
+    margin: 5px 14px 5px 3px;
+}
+
+.signup {
+background-color: #080808a3;
+color: #fff;
+width: 8em;
+font-weight: 600;
+padding:10px;
+border: none;
+border-radius: 2em;
+margin-bottom: 2%;
+}
+
+.formheight {
+    height: 17.5em;
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+#circle {
+    background:#ccff0070;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    color:black;
+   
+}
+.innerTEXT{
+    display: flex;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginheight {
+    height: 9em;
+}
