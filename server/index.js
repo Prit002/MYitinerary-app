@@ -89,31 +89,31 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
               message: 'Error: username cannot be blank.'
             });
           }
-        // if (!firstname) {
-        //     return res.send({
-        //       success: false,
-        //       message: 'Error: firstname cannot be blank.'
-        //     });
-        //   }
-        //   if (!lastname) {
-        //     return res.send({
-        //       success: false,
-        //       message: 'Error: lastname cannot be blank.'
-        //     });
-        // }
-        // if (!email) {
-        //   return res.send({
-        //     success: false,
-        //     message: 'Error: Email cannot be blank.'
-        //   });
-        // }
-        // if (!password) {
-        //   return res.send({
-        //     success: false,
-        //     message: 'Error: Password cannot be blank.'
-        //   });
+        if (!firstname) {
+            return res.send({
+              success: false,
+              message: 'Error: firstname cannot be blank.'
+            });
+          }
+          if (!lastname) {
+            return res.send({
+              success: false,
+              message: 'Error: lastname cannot be blank.'
+            });
+        }
+        if (!email) {
+          return res.send({
+            success: false,
+            message: 'Error: Email cannot be blank.'
+          });
+        }
+        if (!password) {
+          return res.send({
+            success: false,
+            message: 'Error: Password cannot be blank.'
+          });
 
-        // }
+        }
         email = email.toLowerCase();
         email = email.trim();
         // Steps:
