@@ -78,11 +78,12 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
             lastname,
             username,
             password,
+            country,
         } = body;
         let {
           email
         } = body;
-        // console.log(req)
+        console.log(req)
         if (!username) {
             return res.send({
               success: false,
@@ -119,7 +120,7 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
         // Steps:
         // 1. Verify email doesn't exist
         // 2. Save
-
+        // console.log(hello)
         const user = dbase.collection('user');
         user.find({
           email: email
@@ -143,9 +144,11 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
           newUser.lastname = lastname;
           newUser.username = username;
           newUser.email = email;
+          newUser.country = country;
           newUser.password = newUser.generateHash(password);
           user.save(newUser,(err, doc) => {
             if (err) {
+            
               return res.send({
                 success: false,
                 message: 'Error: Server error'
@@ -284,7 +287,6 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
         success: true,
         message: 'Good'
       });
-console.log(user);
     });  
   
   });

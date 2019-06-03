@@ -5,11 +5,11 @@ import {connect} from 'react-redux';
 import * as actionCreator from './store/actions/action';
 
 const initialState = {
-      username: "",
+      email: "",
       password: "",
       // isLoading: true,
       rememberMe:false,
-      usernameError:"",
+      emailError:"",
       passwordError:"",
 }
 class Login extends Component {
@@ -32,18 +32,18 @@ class Login extends Component {
   }
 
 validate=() =>{
-  let usernameError = "";
+  let emailError = "";
   let passwordError ="";
 
-  if(!this.state.username) {
-    usernameError = "User cannot be Blank";
+  if(!this.state.email) {
+    emailError = "email cannot be Blank";
   }
    if(!this.state.password) {
     passwordError = "password cannot be Blank";
   }
-if(usernameError || passwordError) {
+if(emailError || passwordError) {
   this.setState({
-    usernameError, passwordError});
+    emailError, passwordError});
   return false;
 }
 return true;
@@ -67,18 +67,24 @@ return true;
             <Hamburger/>
             <h3 className="accountheading"> Login</h3>
             <form className = "loginheight"  onSubmit={this.handleSubmit}>
+            <div className="formdetail">
           <div className="formbox">
             {" "}
-            <label className="content">Username :</label>
+            <label className="content">Email :</label>
             <input
-              className="inputbox"
+              className="inputbox1"
               type="text"
-              name="username"
-              placeholder="username"
-              value={this.state.username}
+              name="email"
+              placeholder="Email"
+              value={this.state.email}
               onChange={this.handleChange}
             />
           </div>
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.emailError}
+            </div>
+          </div>
+          <div className="formdetail">
           <div className="formbox">
             <label className="content">Password : </label>
             <input
@@ -90,9 +96,13 @@ return true;
               onChange={this.handleChange}
             />
           </div>
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.passwordError}
+            </div>
+          </div>
           <div className= "formbox2">
           <input
-              className="inputbox2"
+              className="inputbox3"
               type="checkbox"
               name="rememberMe"
               checked={this.state.rememberMe}

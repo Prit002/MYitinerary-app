@@ -28,6 +28,7 @@ const initialState = {
       emailError:"",
       firstnameError:"",
       lastnameError:"",
+      countryError:"",
 }
 
 class Account extends Component {
@@ -62,6 +63,7 @@ class Account extends Component {
   let emailError ="";
   let firstnameError ="";
   let lastnameError ="";
+  let countryError = "";
 
   if(!this.state.username) {
     usernameError = "User cannot be Blank";
@@ -78,9 +80,12 @@ class Account extends Component {
   if(!this.state.lastname) {
     lastnameError = "lastname cannot be Blank";
   }
-  if(usernameError || passwordError || emailError || firstnameError || lastnameError) {
+  if(!this.state.countries) {
+    countryError = " select your country";
+  }
+  if(usernameError || passwordError || emailError || firstnameError || lastnameError || countryError) {
    this.setState({
-    usernameError, passwordError, emailError, firstnameError, lastnameError});
+    usernameError, passwordError, emailError, firstnameError, lastnameError, countryError});
      return false;
 }
      return true;
@@ -117,9 +122,10 @@ class Account extends Component {
         </div>
         </div>
         <form className = "formheight" onSubmit={this.handleSubmit}>
+          <div className="formdetail">
           <div className="formbox">
-            {" "}
             <label className="content">Username :</label>
+
             <input
               className="inputbox"
               type="text"
@@ -127,8 +133,13 @@ class Account extends Component {
               name="username"
               value={this.state.username}
               onChange={this.handleChange}
-            />
-          </div>
+            /></div>
+      
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.usernameError}
+            </div>
+            </div>
+          <div className="formdetail">
           <div className="formbox">
             <label className="content">Password : </label>
             <input
@@ -138,44 +149,57 @@ class Account extends Component {
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
-            />
-          </div>
+            /></div>
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.passwordError}
+            </div>
+            </div>
+          <div className="formdetail">
           <div className="formbox">
-            {" "}
             <label className="content">Email :</label>
             <input
               className="inputbox1"
               type="text"
               placeholder="email"
               name="email"
-              value={this.state.Email}
+              value={this.state.email}
               onChange={this.handleChange}
-            />
+            /></div>
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.emailError}
+            </div>
           </div>
+          <div className="formdetail">
           <div className="formbox">
-            {" "}
             <label className="content">First Name : </label>
             <input
-              className="inputbox"
+              className="inputbox2"
               type="text"
               placeholder= "firstname"
               name="firstname"
-              value={this.state.FirstName}
+              value={this.state.firstname}
               onChange={ this.handleChange}
-            />
-          </div>
+            /></div>
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.firstnameError}
+            </div>
+            </div>
+          <div className="formdetail">
           <div className="formbox">
-            {" "}
             <label className="content">Last Name : </label>
             <input
-              className="inputbox"
+              className="inputbox2"
               type="text"
               placeholder="lastname"
               name="lastname"
               value={this.state.lastname}
               onChange={this.handleChange}
-            />
+            /></div>
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.lastnameError}
+            </div>
           </div>
+          <div className="formdetail">
           <div className = "formbox1">
             <label className="content">Select your Country :  </label>
             <select
@@ -186,22 +210,25 @@ class Account extends Component {
             >
               <option value="">Choose</option>
               {option}
-            </select>
+            </select></div>
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.countryError}
+            </div>
           </div>
           <div className= "formbox2">
           <input
-              className="inputbox2"
+              className="inputbox3"
               type="checkbox"
               name="rememberMe"
               checked={this.state.rememberMe}
               onChange={this.handleChange}
             />
             
-            <span>I agree to MYtinerary's <a href ="Terms & Conditions">Terms & Conditions</a></span>
+            <span className="agree">I agree to MYtinerary's <a href ="Terms & Conditions">Terms & Conditions</a></span>
           </div>
        <div className = "direction"> <button className="signup">Sign up</button></div>  
         </form>
-        <div className = "direction">
+        <div className = "direction1">
               <a href="/"><img src={homeIcon} className="login" alt="appPage" /></a>
           </div>
       </div>
@@ -215,7 +242,7 @@ return {
 }
 const mapDispatchToProps = (dispatch) =>{
 return {
-  signUpUsers:(user) => dispatch(actionCreator.signUpUsers(user))
+  signUpUsers:(userInfo) => dispatch(actionCreator.signUpUsers(userInfo))
 }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (Account);
