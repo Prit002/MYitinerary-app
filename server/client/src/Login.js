@@ -61,9 +61,19 @@ return true;
     }
     
   };
+
+  handleLogout (event) {
+    event.preventDefault();
+    
+      this.props.logOutUser(this.state)
+      this.props.history.push("/login");
+  }
+// }
     render() {
-        return (
-          <div>
+
+      const showLoginPage = (
+
+        <div>
             <Hamburger/>
             <h3 className="accountheading"> Login</h3>
             <form className = "loginheight"  onSubmit={this.handleSubmit}>
@@ -117,6 +127,28 @@ return true;
               <a href="/"><img src={homeIcon} className="login" alt="appPage" /></a>
           </div>
           </div>
+      )
+
+      const afterLoginMessage =(
+        <div>
+          <Hamburger/>
+          <p>You are currently Logged In</p>
+          <p>Click on the home icon to go on Home page.</p>
+          <a href="/"><img src={homeIcon} className="login" alt="appPage" /></a>
+          <p>Click on the Log out Button If you want to sign Out</p>
+          <div className = "direction"> <button className="signup " onClick={this.props.logOutUser}>LogOut</button></div> 
+          
+
+        </div>
+      )
+      const userLoggedIn = this.props.userLoggedIn
+        return (
+          <div>
+            {userLoggedIn ? afterLoginMessage : showLoginPage }
+            {/* <div className = "direction1">
+              <a href="/"><img src={homeIcon} className="login" alt="appPage" /></a>
+          </div> */}
+          </div>
         );
       }
     }
@@ -126,8 +158,11 @@ return {
 }
 }
 const mapDispatchToProps = (dispatch) =>{
-return {
-  logInUser:(user) => dispatch(actionCreator.logInUser(user))
+return {    
+  logInUser:(user) => {dispatch(actionCreator.logInUser(user))},
+  logOutUser:() =>  {dispatch(actionCreator.logOutUser())}
+
+  
 }
 }
 

@@ -3,7 +3,8 @@ const initState = {
     cityIsLoaded : false,
     itineraries: {},
     userAdded:false,
-    userLoggedIn:false
+    userLoggedIn:false,
+    userLoggedOut:false,
     
 }
 
@@ -46,6 +47,14 @@ if (action.type == "GET_CITIES"){
         }
             
     }
+    if (action.type == "USER_lOGGEDOUT"){
+        state = {
+            ...state,
+            userLoggedOut: action.userLoggedOut
+        }
+            
+    }
+    
         return state;
 
 }

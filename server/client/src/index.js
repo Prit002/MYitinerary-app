@@ -9,14 +9,17 @@ import MYtinerary from './MYtinerary';
 import Account from './Account';
 import Login from './Login';
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer'
 
 
-const store = createStore(rootReducer,applyMiddleware(thunk) )
-
+const store = createStore(rootReducer,
+  compose(applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 //Router
 const routing = (
     <Router>
@@ -44,6 +47,7 @@ const routing = (
         <Route path="/Account" component={Account} />
         <Route path="/Mytinerary/:city" component={MYtinerary} />
         <Route path="/Login" component={Login} />
+        {/* <Route path="/Logout" component={Logout} /> */}
         </Switch>
 
       {/* </div> */}

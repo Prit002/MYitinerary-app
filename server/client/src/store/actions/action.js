@@ -78,11 +78,11 @@ export const getCities = (cities) => {
                   },
                   body: "username=" + userInfo.username + "&password=" + userInfo.password + "&email=" + userInfo.email + "&firstname=" + userInfo.firstname + "&lastname=" + userInfo.lastname + "&country=" + userInfo.country                 
                 })
-                .then(res => res.text())
+                .then(res => res.json())
 
-                .then(text => {
-                  dispatch(logInSuccess(text))
-                 console.log('json', text);
+                .then(json => {
+                  dispatch(logInSuccess(json))
+                 console.log('json', json);
                 })
         }
         }
@@ -101,18 +101,59 @@ export const getCities = (cities) => {
                 method: "Post", 
                 headers: {
                   "Content-Type": "application/x-www-form-urlencoded"
-                },
+                },    
                 body:"email=" + userInfo.email + "&password=" +
                                     userInfo.password 
                                     
               }) .then(res => res.json())
               .then(json => {
-                dispatch(logInSuccess(json))
+                dispatch(logInSuccess(true))
+               console.log('json', json);
+               localStorage.setItem('token', json.token)
+              })
+        }
+        }           
+  
+        export const logOutSuccess = (userLoggedOut) => {
+          return{
+              type:"USER_lOGGEDOUT",
+              userLoggedOut
+          }
+          }
+    
+        export function logOutUser() {
+        console.log("logout")
+        localStorage.removeItem('token')
+        return dispatch => {
+            fetch('/api/logout/',{
+                method: "Get", 
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                                
+              }) .then(res => res.json())
+              .then(json => {
+               
+                dispatch(logInSuccess(false))
+                console.log('logInSuccess')
                console.log('json', json);
               })
         }
         }
-  
+
+
+          //   export function UserLoggedOut(){
+      //     console.log("logout")
+      //     localStorage.removeItem('token')
+      //     return dispatch => {
+      //         dispatch(logInSuccess(false))
+      //         console.log('logInSuccess')
+      //     }
+      // }
+
+
+
+
         //  }) .then(res => res.json()            
                   
         //       )

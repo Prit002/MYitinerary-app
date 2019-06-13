@@ -1,26 +1,32 @@
 import React, { Component } from 'react'
-import adminLogin from './images/admin-login.png'
+import Loginicon from './Loginicon';
+
 
 class Hamburger extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { condition: false };
+        this.state = {
+            condition: false ,
+        }
+        
+
         this.toggleCondition = this.toggleCondition.bind(this);
     }
+        
     toggleCondition() {
         const newCondition = this.state.condition == false ? true : false;
         this.setState({ condition: newCondition });
     }
 
     render() {
-        return (
-
+        return(
                 <nav className="navigation">
 
                     <div>
-                        <a href="/login"><img src={adminLogin} className="login" alt="login" /></a>
+                        <Loginicon/>
                     </div>
+
                     <div>
 
                         <button className="toggle-button" onClick={this.toggleCondition}>
@@ -50,5 +56,4 @@ class Hamburger extends Component {
         )
     }
 }
-
 export default Hamburger;

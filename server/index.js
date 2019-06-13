@@ -285,7 +285,7 @@ MongoClient.connect('mongodb+srv://preeti123:nether123@mern-fy1ul.gcp.mongodb.ne
       }
       return res.send({
         success: true,
-        message: 'Good'
+        message: 'LogOut successfully'
       });
     });  
   

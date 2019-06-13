@@ -22,9 +22,13 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: ''
   },
-  userId: {
+  country: {
     type: String,
     default: ''
+  },
+  userId: {
+    type: String,
+    default: '',
   },
     isDeleted: {
         type: Boolean,

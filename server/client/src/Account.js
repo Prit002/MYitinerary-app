@@ -99,6 +99,7 @@ class Account extends Component {
     if (isValid){
       console.log(this.state);
       this.setState(initialState);
+      // this.props.history.push("/");
       this.props.signUpUsers(this.state)
 
     }
