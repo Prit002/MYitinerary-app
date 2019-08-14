@@ -8,7 +8,7 @@ import MainBody from './MainBody';
 class App extends Component {
   render() {
     return (
-      <div className="App" onClick={this.toggleCondition}>
+      <div className="App">
         <Hamburger />
         <MainBody />
         <PlaceList />

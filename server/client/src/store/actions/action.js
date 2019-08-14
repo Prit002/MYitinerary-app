@@ -1,3 +1,5 @@
+import { STATUS_CODES } from "http";
+
 export const getCities = (cities) => {
   return{
       type:"GET_CITIES",
@@ -97,7 +99,7 @@ export const getCities = (cities) => {
         export function logInUser(userInfo) {
         console.log("hello")
         return dispatch => {
-            fetch('/api/signin/',{
+          fetch('/api/signin/',{
                 method: "Post", 
                 headers: {
                   "Content-Type": "application/x-www-form-urlencoded"
@@ -112,7 +114,27 @@ export const getCities = (cities) => {
                localStorage.setItem('token', json.token)
               })
         }
-        }           
+        }   
+        
+        export function oauthGoogle (token) {
+          console.log("google is working")
+          return dispatch => {
+            //data sent is access token
+            fetch("/api/google/redirect" + token, {
+              method: "GET", 
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },    
+              // body:"email=" + userInfo.email + "&password=" +
+                                  // userInfo.password
+            }).then(res => res.json())
+            .then(json => {
+              // dispatch(logInSuccess(true))
+             console.log('json', json);
+            localStorage.setItem("token", json.token)
+            })
+          };
+        };
   
         export const logOutSuccess = (userLoggedOut) => {
           return{
@@ -124,20 +146,10 @@ export const getCities = (cities) => {
         export function logOutUser() {
         console.log("logout")
         localStorage.removeItem('token')
-        return dispatch => {
-            fetch('/api/logout/',{
-                method: "Get", 
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded"
-                },
-                                
-              }) .then(res => res.json())
-              .then(json => {
-               
+        return dispatch => {               
                 dispatch(logInSuccess(false))
                 console.log('logInSuccess')
-               console.log('json', json);
-              })
+
         }
         }
 
@@ -150,20 +162,3 @@ export const getCities = (cities) => {
       //         console.log('logInSuccess')
       //     }
       // }
-
-
-
-
-        //  }) .then(res => res.json()            
-                  
-        //       )
-        //       .then(json => {
-               
-        //         dispatch(getitineraries(res))
-        //       })
-        // }
-        // }
-  
-  
-  
-          // }, body:"username=" + userInfo.username + "&password=" + userInfo.password + "&email=" + userInfo.email = "&firstName=" + userInfo.firstName ="&lastName" + userInfo.lastName ="&country" + userInfo.country

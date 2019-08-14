@@ -243,7 +243,8 @@ return {
 }
 const mapDispatchToProps = (dispatch) =>{
 return {
-  signUpUsers:(userInfo) => dispatch(actionCreator.signUpUsers(userInfo))
+  signUpUsers:(userInfo) => {dispatch(actionCreator.signUpUsers(userInfo))}
+  
 }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (Account);

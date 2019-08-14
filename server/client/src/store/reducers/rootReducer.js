@@ -5,6 +5,7 @@ const initState = {
     userAdded:false,
     userLoggedIn:false,
     userLoggedOut:false,
+    authGoogleSignIn:false,
     
 }
 
@@ -51,6 +52,14 @@ if (action.type == "GET_CITIES"){
         state = {
             ...state,
             userLoggedOut: action.userLoggedOut
+        }
+            
+    }
+
+    if (action.type ==  "AUTH_SIGN_UP"){
+        state = {
+            ...state,
+            authGoogleSignIn: action.authGoogleSignIn
         }
             
     }

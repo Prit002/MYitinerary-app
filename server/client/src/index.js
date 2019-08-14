@@ -47,6 +47,7 @@ const routing = (
         <Route path="/Account" component={Account} />
         <Route path="/Mytinerary/:city" component={MYtinerary} />
         <Route path="/Login" component={Login} />
+        <Route path="/auth/google/redirect" component={Login} />
         {/* <Route path="/Logout" component={Logout} /> */}
         </Switch>
 

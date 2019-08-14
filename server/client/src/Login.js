@@ -3,6 +3,7 @@ import Hamburger from "./Hamburger";
 import homeIcon from './images/homeIcon.png';
 import {connect} from 'react-redux';
 import * as actionCreator from './store/actions/action';
+import GoogleSign from './GoogleSign';
 
 const initialState = {
       email: "",
@@ -19,6 +20,16 @@ class Login extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
+  }
+
+  responseGoogle(event) {
+    //send access Token
+    this.props.oauthGoogle(this.state);
+    console.log(this.state);
+    if (!this.props.errorMessage) {
+      this.props.history.push(`/`);
+    }
   }
 
   handleChange(event) {
@@ -123,6 +134,12 @@ return true;
        <div className = "direction"> <button className="signup ">OK</button></div>  
         </form>
         <div className = "direction"><a href ="/Account">Create Account</a></div>
+        <p className="login-text">
+          Don't have a MYtinerary account yet? You should create one! It's
+          totally free and only takes a minute.
+        </p>
+        <GoogleSign/>
+        {/* <div className = "direction"> <button className="signup ">Sign in with Google</button></div> */}
         <div  className = "direction">
               <a href="/"><img src={homeIcon} className="login" alt="appPage" /></a>
           </div>
@@ -161,6 +178,7 @@ const mapDispatchToProps = (dispatch) =>{
 return {    
   logInUser:(user) => {dispatch(actionCreator.logInUser(user))},
   logOutUser:() =>  {dispatch(actionCreator.logOutUser())}
+  
 
   
 }

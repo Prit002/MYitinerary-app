@@ -18,7 +18,7 @@ class GaudiSlider extends Component {
           </div>
       );
     } else {
-      return <div>no images</div>;
+      return <div>No images</div>;
     }
   }
 }
